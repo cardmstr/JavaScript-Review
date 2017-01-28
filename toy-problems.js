@@ -8,6 +8,15 @@ plusOneSum([1, 2, 3, 4]); // 14
 
 */
 
+function plusOneSum(arr){
+  var newArr = [];
+  var total = 0;
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(arr[i]+1);
+    total += newArr[i];
+  }
+  return total;
+}
 
 
 /*
@@ -18,7 +27,19 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 
 */
 
+function flatten(arr){
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if(Array.isArray(arr[i])){
+      newArr = newArr.concat(flatten(arr[i])); // RECURSION!!!!!!
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
 
+console.log(flatten([1, 2, [3, [4], 5, 6], 7]));
 
 /*
 
